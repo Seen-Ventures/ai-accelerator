@@ -1,6 +1,6 @@
-# AutoGen Studio: A Deep Dive into Multi-Agent Workflow Design
+# Onboarding Application with AutoGen Studio
 
-This README serves as a comprehensive guide to AutoGen Studio, a user-friendly interface built upon the AutoGen framework for prototyping and testing multi-agent applications. AutoGen Studio empowers you to design, manage, and interact with agents, enabling rapid experimentation with complex workflows.
+This README is as a guide to AutoGen Studio, a user-friendly interface built upon the AutoGen framework for prototyping and testing multi-agent applications. AutoGen Studio enables users to design, manage, and interact with agents, enabling rapid experimentation with complex workflows.
 
 ## Getting Started
 
