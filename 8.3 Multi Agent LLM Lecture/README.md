@@ -68,7 +68,13 @@ The **Build** section is where you define the core components of your multi-agen
 
 - **Agents:** Create and configure your agents here. You specify agent names, descriptions, system messages (initial instructions), and importantly, the LLM they use (configured earlier or by choosing the model).
 
-  **Image 4:** !["Agent Configuration" window, displaying the configuration options and an example like `welcome_assistant` with its description. Ensure that the fields `Agent Name`, `Agent Description`, `Max Consecutive Auto Reply`, `Human Input Mode`, and `System Message` are visible.](https://drive.google.com/uc?export=view&id=1LKgHE0GsBG00mLLwQrddyawQSIlaOW9P)
+**Image 4:** !["Agent Configuration" window, displaying the configuration options and an example like `welcome_assistant` with its description. Ensure that the fields `Agent Name`, `Agent Description`, `Max Consecutive Auto Reply`, `Human Input Mode`, and `System Message` are visible.](https://drive.google.com/uc?export=view&id=1LKgHE0GsBG00mLLwQrddyawQSIlaOW9P)
+
+To add the agents from the JSON files, you will input the values from the JSON files into the corresponding fields in the "Agent Configuration" window. For example, to add the `welcome_assistant` agent, you will open the `agent_welcome_assistant.json` file, copy the value of the "name" field ("welcome_assistant"), and paste it into the "Agent Name" field in the "Agent Configuration" window. You will then copy the value of the "description" field ("Welcome Assistant") and paste it into the "Agent Description" field.
+
+You will then need to set the values for the "Max Consecutive Auto Reply", "Human Input Mode", and "System Message" fields based on the values in the JSON file. The "Max Consecutive Auto Reply" field should be set to the value of the "max_consecutive_auto_reply" field in the JSON file (1), the "Human Input Mode" field should be set to the value of the "human_input_mode" field ("NEVER"), and the "System Message" field should be set to the value of the "system_message" field ("Welcomes new recruits, gathers essential info (full name, contact details, email, address, mobile number), gives a quick overview of Seen Ventures, and keeps all responses under 100 tokens.").
+
+You will repeat this process for each of the other agents in the JSON files: `background_check_assistant`, `hr_assistant`, `it_assistant`, and `group_onboarding_assistant`. Find examples files in the [agents](/8.3%20Multi%20Agent%20LLM%20Lecture/agents) folder.
 
 - **Workflows:** Define the interaction patterns between agents.
 
@@ -98,6 +104,6 @@ This overview covers the core functionalities of AutoGen Studio. Future sections
 - **Gallery:** Managing and sharing your workflow configurations, skills, and agents.
 - **Complex Workflows:** Implementing more sophisticated interactions, such as `GroupChat` for simultaneous multi-agent conversations.
 - **Custom Skill Development:** Creating and integrating your own custom skills using Python.
-- **Advanced Agent Configuration:** Deep dive into configuration options and utilizing advanced features.
+- **Advanced Agent Configuration:** Deep dive into configuration options and utilising advanced features.
 
 Furthermore, the AutoGen Studio project welcomes contributions. Refer to the project's contribution guidelines for more information.
