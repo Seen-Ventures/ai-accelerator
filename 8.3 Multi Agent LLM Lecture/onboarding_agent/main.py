@@ -34,16 +34,24 @@ class AssistantAgent:
             }
         elif "onboard" in message.lower():
             return {
-                "content": "Great! Let's get you started with the onboarding process. First, I'll need some information from you. Can you please provide your full name, contact details, email, address, and mobile number?"
+                "content": "Great! Let's get you started with the onboarding process. I'll need to gather some information. Can you please provide your full name, contact details, email, address, and mobile number?"
+            }
+        elif "join" in message.lower():
+            return {
+                "content": "Welcome! To join Seen Ventures, please provide your full name and email address to get started."
             }
         else:
             return {"content": "Welcome! How can I help you today?"}
 
     def hr_assistant_response(self, message):
         # Simulate HR-related responses
-        if "employment rules" in message.lower():
+        if "work remotely" in message.lower():
             return {
-                "content": "In New Zealand, unpaid 12-week internships have certain rules. Working hours should be reasonable, and health & safety regulations must be followed. Minimum wage and holiday pay don't apply. Do you have any specific questions?"
+                "content": "Yes, you can work remotely. Our company offers flexible working arrangements, including remote work options. Do you have any other questions about your employment?"
+            }
+        elif "onboard" in message.lower() or "employment" in message.lower():
+            return {
+                "content": "To complete your onboarding, please provide your employment contract details and any necessary documentation. Do you have any specific questions about the onboarding process?"
             }
         else:
             return {
@@ -52,15 +60,24 @@ class AssistantAgent:
 
     def background_check_response(self, message):
         # Simulate background check responses
-        return {
-            "content": "Background Check Assistant here! I can help you with questions about background checks. Please provide the details you need assistance with."
-        }
+        if "background check" in message.lower():
+            return {
+                "content": "I can help you with the background check process. Please provide your full name and any relevant details for the check."
+            }
+        else:
+            return {
+                "content": "Background Check Assistant here! Please provide the details you need assistance with."
+            }
 
     def it_assistant_response(self, message):
         # Simulate IT-related responses
         if "login details" in message.lower():
             return {
-                "content": "I can help you with your IT login details. Please provide your email address and I'll get the necessary information for you."
+                "content": "I can help you with your IT login details. Please provide your email address, and I'll get the necessary information for you."
+            }
+        elif "tech issue" in message.lower():
+            return {
+                "content": "Please describe the tech issue you're experiencing, and I'll assist you in resolving it."
             }
         else:
             return {
