@@ -13,11 +13,59 @@ class AssistantAgent:
     def __init__(self, name, system_message):
         self.name = name
         self.system_message = system_message
+        self.conversation_state = {}
 
     def handle_message(self, message):
-        # Define how the assistant should handle the message
-        response = f"{self.name} received the message: {message}"
-        return {"content": response}
+        if self.name == "welcome_assistant":
+            return self.welcome_assistant_response(message)
+        elif self.name == "hr_assistant":
+            return self.hr_assistant_response(message)
+        elif self.name == "background_check_assistant":
+            return self.background_check_response(message)
+        elif self.name == "it_assistant":
+            return self.it_assistant_response(message)
+        else:
+            return {"content": "I'm not sure how to help with that."}
+
+    def welcome_assistant_response(self, message):
+        if "hello" in message.lower():
+            return {
+                "content": "Hello! Welcome to Seen Ventures. How can I assist you today? Are you looking for help with onboarding, company policies, or something else?"
+            }
+        elif "onboard" in message.lower():
+            return {
+                "content": "Great! Let's get you started with the onboarding process. First, I'll need some information from you. Can you please provide your full name, contact details, email, address, and mobile number?"
+            }
+        else:
+            return {"content": "Welcome! How can I help you today?"}
+
+    def hr_assistant_response(self, message):
+        # Simulate HR-related responses
+        if "employment rules" in message.lower():
+            return {
+                "content": "In New Zealand, unpaid 12-week internships have certain rules. Working hours should be reasonable, and health & safety regulations must be followed. Minimum wage and holiday pay don't apply. Do you have any specific questions?"
+            }
+        else:
+            return {
+                "content": "HR Assistant here! How can I help you with your employment or HR-related questions?"
+            }
+
+    def background_check_response(self, message):
+        # Simulate background check responses
+        return {
+            "content": "Background Check Assistant here! I can help you with questions about background checks. Please provide the details you need assistance with."
+        }
+
+    def it_assistant_response(self, message):
+        # Simulate IT-related responses
+        if "login details" in message.lower():
+            return {
+                "content": "I can help you with your IT login details. Please provide your email address and I'll get the necessary information for you."
+            }
+        else:
+            return {
+                "content": "IT Assistant here! How can I assist you with your technical issues or questions?"
+            }
 
 
 # Initialize assistant agents
@@ -47,7 +95,7 @@ user_proxy = UserProxyAgent(
 def route_message(message):
     # Use OpenAI's API for intent classification
     response = client.chat.completions.create(
-        model="gpt-4-1106-preview",  # Or a suitable model like "gpt-4" or "gpt-4-1106-preview"
+        model="gpt-4-1106-preview",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {
